@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "Chi tiết sản phẩm";
+    var product = ViewBag.Account as PHMLesson3.Models.PHMAccount;
+}
+
+<h2>Chi tiết sản phẩm</h2>
+<hr />
+
+@if (product != null)
+{
+    <div class="row">
+        <div class="col-md-4">
+            <img src="@product.Avatar" alt="" style="width:100%; height: 350px; object-fit: cover; border: 1px solid #ddd; padding: 5px;" />
+        </div>
+        <div class="col-md-8">
+            <h3><b>@product.Name</b></h3>
+            <h4 style="color: red;">Giá: @product.Price đ</h4>
+            <p><b>Mô tả:</b> @product.Bio</p>
+            <br />
+            <a asp-controller="Account" asp-action="Index" class="btn btn-danger">Quay lại danh sách</a>
+        </div>
+    </div>
+}

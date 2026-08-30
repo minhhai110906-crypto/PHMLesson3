@@ -1,0 +1,54 @@
+﻿@{
+    ViewData["Title"] = "Danh sách sản phẩm";
+    var products = ViewBag.Accounts as List<PHMLesson3.Models.PHMAccount>;
+}
+
+<div class="row">
+    <!-- Cột trái: DANH MỤC -->
+    <div class="col-md-3">
+        <div style="border: 1px solid #ddd; padding: 15px; background: #fff;">
+            <h4 style="font-weight: bold; margin-top:0;">DANH MỤC</h4>
+            <hr style="margin: 5px 0 10px 0;" />
+            <ul style="list-style: none; padding-left: 0; line-height: 2.2;">
+                <li><a asp-controller="Account" asp-action="Index">Tất cả sản phẩm</a></li>
+                <li><a asp-controller="Account" asp-action="Index" asp-route-category="QuanAo">Quần Áo</a></li>
+                <li><a asp-controller="Account" asp-action="Index" asp-route-category="TuiXach">Túi xách</a></li>
+                <li><a href="#">Đồng hồ</a></li>
+                <li><a href="#">Tivi</a></li>
+                <li><a href="#">Tủ lạnh</a></li>
+                <li><a href="#">Máy bơm</a></li>
+                <li><a href="#">Quạt điện</a></li>
+                <li><a href="#">Lò sưởi</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Cột phải: DANH SÁCH SẢN PHẨM -->
+    <div class="col-md-9">
+        <h3 style="margin-top: 0;"><b>Danh sách sản phẩm</b></h3>
+        <hr style="margin-top: 10px;" />
+        <div class="row">
+            @if (products != null)
+            {
+                @foreach (var item in products)
+                {
+                    <div class="col-md-4" style="margin-bottom: 20px;">
+                        <div class="thumbnail" style="padding: 10px; border: 1px solid #ddd; text-align: center;">
+                            <img src="@(item.Avatar)" alt="Avatar" style="width:100%; height: 180px; object-fit: cover;" />
+                            <div class="caption" style="text-align: left;">
+                                <h4 style="font-size: 15px; font-weight: bold; height: 40px; overflow: hidden; margin-top: 10px;">@item.Name</h4>
+                                <p style="color: #666; font-size: 13px;">
+                                    Giá: <span style="text-decoration: line-through;">50000đ</span>
+                                    <span style="color: red; font-weight: bold;">@item.Price đ</span>
+                                </p>
+                                <p>
+                                    <a asp-controller="Account" asp-action="Profile" asp-route-id="@item.Id" class="btn btn-success btn-block" style="width:100%;">Chi tiết</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</div>

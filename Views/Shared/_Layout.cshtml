@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - PHMLesson3</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <style>
+            
+            .navbar-nav > li {
+                float: left !important;
+            }
+
+            .navbar-right {
+                float: right !important;
+            }
+    </style>
+</head>
+<body>
+    <div style="background-color: #222; padding: 10px 20px; margin-bottom: 20px; display: flex; align-items: center; justify-content: space-between;">
+        <div style="display: flex; align-items: center;">
+            <a href="/" style="color: #fff; font-size: 18px; font-weight: bold; text-decoration: none; margin-right: 30px;">HaiMinh</a>
+            <ul style="list-style: none; margin: 0; padding: 0; display: flex;">
+                <li style="margin-right: 20px;"><a asp-controller="Home" asp-action="Index" style="color: #9d9d9d; text-decoration: none;">Home</a></li>
+                <li style="margin-right: 20px;"><a asp-controller="Home" asp-action="About" style="color: #9d9d9d; text-decoration: none;">About</a></li>
+                <li style="margin-right: 20px;"><a asp-controller="Home" asp-action="Contact" style="color: #9d9d9d; text-decoration: none;">Contact</a></li>
+                <li style="margin-right: 20px;"><a asp-controller="Home" asp-action="DemoIndex" style="color: #9d9d9d; text-decoration: none;">Demo Index</a></li>
+                <li style="margin-right: 20px;"><a asp-controller="Account" asp-action="Index" style="color: #9d9d9d; text-decoration: none;">Account</a></li>
+                <li><a href="/sanpham" style="color: #9d9d9d; font-weight: normal; text-decoration: none;">Sản phẩm</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; 2026 - PHMLesson3</p>
+        </footer>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
